@@ -1,0 +1,23 @@
+{
+  "name": "todues-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && swc ./src -d dist",
+    "start": "node dist/src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.3.12",
+    "@swc/core": "^1.5.7",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.12.12",
+    "rimraf": "^5.0.7"
+  }
+}
