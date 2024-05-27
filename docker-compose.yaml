@@ -13,3 +13,17 @@ services:
       - /usr/src/app/.pnpm-store
       - /usr/src/app/node_modules 
     command: pnpm dev
+  
+  db:
+    container_name: ${DB_CONTAINER_NAME}
+    image: postgres:latest
+    restart: always
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=todues_api
+
+volumes: 
+  data:

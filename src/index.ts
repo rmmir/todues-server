@@ -1,7 +1,20 @@
 import express, { Request, Response } from "express"
 import morgan from "morgan"
+import * as dotenv from 'dotenv'
+import { dataSource } from './db/data-source'
+
+dataSource
+    .initialize()
+    .then(() => {
+        console.log('Data Source has been initialized!')
+    })
+    .catch((err) => {
+        console.error('Error during Data Source initialization: ', err)
+    })
 
 const app = express()
+
+dotenv.config()
 app.use(morgan("dev"))
 
 app.get("/", (req: Request, res: Response) => {
